@@ -1,4 +1,4 @@
-# Firfir_tera-webapp
+# Firfir_tera-recipe-sharing-webapp
 Web Programming group project
 Group Members
 1.  Anatoli Derese………………………………… UGR/6458/14
