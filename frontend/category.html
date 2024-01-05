@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <title>Category</title>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-md bg-body-tertiary ">
+            <div class="container-fluid ">       
+            <a class="navbar-brand text-danger" href="">
+                <div class="navbar-brand mx-3">
+                    <img src="./Images/restaurant.png" alt="" class="img-fluid image home-banner" width="50">
+                  </div> ፍርፍር ተራ
+            </a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link text-black" href="./index.html">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link text-black" href="./Recipes.html" >Recipes</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link text-black" href="./category.html">Categories</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link text-black" href="./Recipes.html">About us</a>
+                  </li>
+                </ul>
+                <form class="d-flex" role="search">
+                  <input class="form-control me-2 " type="search" placeholder="Search" aria-label="Search">
+                  <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+              </div>
+            </div>
+        </nav>
+    </header>
+    
+    <main class class="">
+      
+      <div class="d-flex  flex-wrap align-items-center justify-content-center mt-5 w-auto h-auto bg-white opacity-75">
+            <button class="m-3 btn btn-primary btn-outline-black btn-lg" onclick="display(1)">Fasting</button>
+            <button class="m-3 btn btn-primary btn-outline-black btn-lg" onclick="display(2)">Non Fasting</button>
+            <button class="m-3 btn btn-primary btn-outline-black btn-lg" onclick="display(30)">Break Fast</button>
+            <button class="m-3 btn btn-primary btn-outline-black btn-lg" onclick="display(4)">Lunch</button>
+            <button class="m-3 btn btn-primary btn-outline-black btn-lg" onclick="display(5)">Snack</button>
+            <button class="m-3 btn btn-primary btn-outline-black btn-lg" onclick="display(6)">Dinner</button>
+      </div>
+        
+        
+        
+           
+
+    </main>
+    
+</body>
+<style>
+    body {
+    background: url('Images/firfir.jpg') no-repeat center center fixed;
+    background-size: cover;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+</style>
+
+<script src="js/category.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+
+
+</html>
