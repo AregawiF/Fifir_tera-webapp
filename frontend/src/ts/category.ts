@@ -1,5 +1,6 @@
 
 const to_ken = sessionStorage.getItem('token');
+console.log(to_ken);
 function display (type:boolean){
     fetch(`http://localhost:3000/recipes/category/${type}`, {
       headers: {
@@ -46,8 +47,9 @@ interface Json{
       description.textContent = iter.description;
       flex.appendChild(description);
       const idValue = iter._id;
-      sessionStorage.setItem('idValue', idValue);
+      sessionStorage.setItem('id', idValue);
       flex.onclick = () => {
+      
         window.location.href = 'singledish.html'
       }
       contain.appendChild(flex);      
