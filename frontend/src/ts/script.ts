@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('recipeForm') as HTMLFormElement;
     const postBtn = document.getElementById('post-btn') as HTMLButtonElement;
 
-    postBtn.addEventListener('click', async (event) => {
+    form.addEventListener('submit', async (event) => {
         event.preventDefault();
 
         const formData = new FormData(form);
@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         try {
-            const response = await fetch('your-api-endpoint', {
+            const response = await fetch('', {
                 method: 'POST',
                 body: formData,
             });

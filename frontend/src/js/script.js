@@ -53,7 +53,7 @@ ingButton.addEventListener("click", () => {
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('recipeForm');
     const postBtn = document.getElementById('post-btn');
-    postBtn.addEventListener('click', (event) => __awaiter(void 0, void 0, void 0, function* () {
+    form.addEventListener('submit', (event) => __awaiter(void 0, void 0, void 0, function* () {
         event.preventDefault();
         const formData = new FormData(form);
         const stepsInputs = document.querySelectorAll('input[name="steps"]');
@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
         try {
-            const response = yield fetch('your-api-endpoint', {
+            const response = yield fetch('', {
                 method: 'POST',
                 body: formData,
             });
