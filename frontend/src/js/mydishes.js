@@ -1,4 +1,5 @@
 "use strict";
+// let id: string = sessionStorage.getItem('id') || '';
 fetch(`http://localhost:3000/recipes/myrecipes${id}`)
     .then(res => res.json())
     .then(json => display(json));

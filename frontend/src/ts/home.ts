@@ -1,18 +1,36 @@
-setInterval(()=>{
-    let iD = 1 + Math.floor(Math.random() * (50 - 1 + 1) + 1);
-    fetch(`https://dummyjson.com/products/${iD}`)
-    .then(res => res.json())
-    .then(json => showRandom(json));
-}, 5000)
+const token = sessionStorage.getItem('token');
+const role = sessionStorage.getItem('role');
+console.log(token, role);
+
+setInterval(() => {
+    fetch(`http://localhost:3000/recipes`, {
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + token,
+        },
+    })
+        .then(res => res.json()) 
+        .then((data:any) => { 
+            const randomIndex = Math.floor(Math.random() * data.length);
+            showRandom(data[randomIndex])
+        });
+}, 2500)
+
 
   function showRandom(json:any){
-      console.log(json)
-      const parent:any = document.getElementById("random");
-      const img:any=document.getElementById('img');
-      const description:any=document.getElementById('description');
-      img.src = json.thumbnail;
-      img.style.width = "50%"
-      img.style.height = "50%"
+    console.log(json)
+    const parent:any = document.getElementById("random");
+    parent.addEventListener('click' , () => {
+        const id:string= json._id
+        sessionStorage.setItem('id', id); // Fix: Use correct syntax for setting an item in sessionStorage
+        window.location.href = 'singledish.html'
+    })
 
-      description.innerHTML=json.description;
+    const img:any=document.getElementById('img');
+    const description:any=document.getElementById('description');
+    img.src = json.thumbnail;
+    img.style.width = "50%"
+    img.style.height = "50%"
+
+    description.innerHTML=json.description;
   }

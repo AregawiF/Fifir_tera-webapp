@@ -14,17 +14,28 @@ document.addEventListener('DOMContentLoaded', () => {
     form.addEventListener('submit', (event) => __awaiter(void 0, void 0, void 0, function* () {
         event.preventDefault();
         const formData = new FormData(form);
+        let jsonData = {};
         formData.forEach((value, key) => {
             console.log(`${key}: ${value}`);
+            jsonData[key] = value.toString();
         });
+        const jsonDataString = JSON.stringify(jsonData);
         console.log(formData.get('password'));
         try {
-            const response = yield fetch('http://localhost:3000', {
+            const response = yield fetch('http://localhost:3000/auth/login', {
                 method: 'POST',
-                body: formData,
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: jsonDataString
             });
             if (response.ok) {
                 console.log('Form submitted successfully');
+                const data = yield response.json();
+                console.log(data);
+                sessionStorage.setItem('token', data.token);
+                sessionStorage.setItem('role', data.role[0]);
+                window.location.href = 'home.html';
             }
             else {
                 console.error('Form submission failed');
