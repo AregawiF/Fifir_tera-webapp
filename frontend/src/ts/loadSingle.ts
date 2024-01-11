@@ -1,8 +1,14 @@
-let id  = sessionStorage.getItem('idValue');
-console.log(id)
-fetch(`http://localhost:3000/recipe/${id}`)
-.then(res => res.json())
-.then(json => handler(json))  
+const token_= sessionStorage.getItem('token');
+const foodId = sessionStorage.getItem('id')
+  console.log(foodId);
+  fetch(`http://localhost:3000/recipes/${foodId}`, {
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + token_,
+    }
+  })
+    .then(res => res.json())
+    .then(json => handler(json))
 
 
 interface Json{
@@ -21,7 +27,11 @@ function handler(json: Json){
     console.log(json)
     let parent:any = document.getElementById('parent')
     let picture = document.createElement('img')
-    picture.src = json.image
+
+    let imgpath = json.image.toString()
+  
+    picture.src = imgpath
+    console.log(picture)
     parent.appendChild(picture);      
     let wholeDiv = document.createElement('div');
     wholeDiv.classList.add("w-md-75" , "bg-white")
@@ -41,7 +51,7 @@ function handler(json: Json){
     iconServing.style.marginLeft = '5px'
     let servingText = document.createElement('p')
     servingText.innerHTML = `Enough for<br/> ${json.people} people`
-    iconServing.src = 'Images/people.png'
+    iconServing.src = '../Images/people.png'
     serving.appendChild(iconServing)
     serving.appendChild(servingText)
     serving.classList.add("m-5")
@@ -51,7 +61,7 @@ function handler(json: Json){
     iconTime.style.width = '20px'
     let prepTimeTest = document.createElement('p')
     prepTimeTest.innerHTML = `Ready in <br/> ${json.cookTime} minutes`
-    iconTime.src = 'Images/stopwatch.png'
+    iconTime.src = '../Images/stopwatch.png'
     iconTime.style.marginLeft = '5px'
     preptime.appendChild(iconTime)
     preptime.appendChild(prepTimeTest)
@@ -83,7 +93,7 @@ function handler(json: Json){
     parent.appendChild(wholeDiv);      
     StepAndIng(json);
   }
-  function StepAndIng(json: Json){
+  function StepAndIng(json:Json){
     let steps = json.steps
     let stepDiv:any = document.getElementById("steps");
     for (const step of steps){

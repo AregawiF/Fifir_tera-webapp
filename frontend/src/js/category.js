@@ -1,6 +1,12 @@
 "use strict";
+const to_ken = sessionStorage.getItem('token');
 function display(type) {
-    fetch(`http://localhost:3000/recipe/category/${type}`)
+    fetch(`http://localhost:3000/recipes/category/${type}`, {
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + to_ken,
+        },
+    })
         .then(res => res.json())
         .then(json => show(json));
 }
