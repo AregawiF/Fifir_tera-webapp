@@ -3,8 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <title>Category</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <title>Home</title>
+
+    <style>
+        body {
+          background: url('../Images/firfir.jpg') no-repeat center center fixed;
+          background-size: cover;
+          height: 100vh;
+          margin: 0;
+          padding: 0;
+        }
+  </style>
+
 </head>
 <body>
     <header>
@@ -12,7 +23,7 @@
             <div class="container-fluid ">       
             <a class="navbar-brand text-danger" href="">
                 <div class="navbar-brand mx-3">
-                    <img src="./Images/restaurant.png" alt="" class="img-fluid image home-banner" width="50">
+                    <img src="../Images/restaurant.png" alt="" class="img-fluid image home-banner" width="50">
                   </div> ፍርፍር ተራ
             </a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -24,13 +35,13 @@
                     <a class="nav-link text-black" href="./index.html">Home</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link text-black" href="./Recipes.html" >Recipes</a>
+                    <a class="nav-link text-black" href="./recipes.html" >Recipes</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link text-black" href="./category.html">Categories</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link text-black" href="./Recipes.html">About us</a>
+                    <a class="nav-link text-black" href="./contact.html">About us</a>
                   </li>
                 </ul>
                 <form class="d-flex" role="search">
@@ -41,37 +52,19 @@
             </div>
         </nav>
     </header>
-    
-    <main class class="">
-      
-      <div class="d-flex  flex-wrap align-items-center justify-content-center mt-5 w-auto h-auto bg-white opacity-75">
-            <button class="m-3 btn btn-primary btn-outline-black btn-lg" onclick="display(1)">Fasting</button>
-            <button class="m-3 btn btn-primary btn-outline-black btn-lg" onclick="display(2)">Non Fasting</button>
-            <button class="m-3 btn btn-primary btn-outline-black btn-lg" onclick="display(30)">Break Fast</button>
-            <button class="m-3 btn btn-primary btn-outline-black btn-lg" onclick="display(4)">Lunch</button>
-            <button class="m-3 btn btn-primary btn-outline-black btn-lg" onclick="display(5)">Snack</button>
-            <button class="m-3 btn btn-primary btn-outline-black btn-lg" onclick="display(6)">Dinner</button>
-      </div>
-        
-        
-        
-           
+    <main>
+        <div class="bg-black text-black">
+            <p class=" text-center"> Food White</p>
+        </div>
+
+        <div class="d-flex flex-column justify-content-center align-items-center w-75 h-75 bg-white  m-5" id="random">
+            <img id="img"/>
+            <p id="description"></p>
+
+        </div>
 
     </main>
-    
 </body>
-<style>
-    body {
-    background: url('Images/firfir.jpg') no-repeat center center fixed;
-    background-size: cover;
-    height: 100vh;
-    margin: 0;
-    padding: 0;
-}
-</style>
-
-<script src="js/category.js"></script>
-<script src="js/bootstrap.bundle.min.js"></script>
-
-
+<script src="./js/home.js" difer></script>
+<script src="../bootstrap/bootstrap.bundle.min.js"></script>
 </html>
