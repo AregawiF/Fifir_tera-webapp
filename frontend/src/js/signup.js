@@ -35,7 +35,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 const data = yield response.json();
                 console.log(data);
                 sessionStorage.setItem('token', data.token);
-                sessionStorage.setItem('id', data.role[0]);
+                sessionStorage.setItem('role', data.role[0]);
+                sessionStorage.setItem('id', data._id);
                 window.location.href = 'home.html';
             }
             else {

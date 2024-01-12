@@ -112,6 +112,9 @@ function saveChanges() {
   })
     .then((response) => response.json())
     .then((json) => console.log(json));
+
+    let al = alert("Changes saved")
+    window.location.href = 'home.html'
 }
 
 function deleteProfile() {
