@@ -28,7 +28,7 @@ function handler(json: Json){
     let parent:any = document.getElementById('parent')
     let picture = document.createElement('img')
 
-    let imgpath = json.image.toString()
+    let imgpath = "http://localhost:3000/uploads/image-1705080843686-945165174.png"
   
     picture.src = imgpath
     console.log(picture)
