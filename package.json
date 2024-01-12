@@ -1,0 +1,14 @@
+{
+  "name": "firfir_tera-recipe-sharing-webapp",
+  "version": "1.0.0",
+  "description": "Web Programming group project\r Group Members\r 1.  Anatoli Derese………………………………… UGR/6458/14\r 2.  Aregawi Fikre…………………………………… UGR/6531/14 \r 3.  Eyob Derese……………………………………… UGR/6771/14 \r 4.  Naol Daba……………………………………………… UGR/4777/14",
+  "main": "index.js",
+  "scripts": {},
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.40.1",
+    "@types/node": "^20.11.0"
+  }
+}
