@@ -29,16 +29,6 @@ export class UserService {
   }
 
   async updateById(userId: string, firstName: string, lastName: string, email: string ) {
-    // const updatedUser = await this.userModel.findByIdAndUpdate(id, user, {
-    //   new: true,
-    //   runValidators: true,
-    // });
-
-    // if (!updatedUser) {
-    //   throw new NotFoundException(`Could not find user with ID ${id}`);
-    // }
-
-    // return updatedUser;
     let updated ;
     try{
         updated = await this.userModel.findById(userId).exec();
