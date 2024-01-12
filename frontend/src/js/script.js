@@ -8,6 +8,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+const Token = sessionStorage.getItem('token');
 const stepButton = document.getElementById("addMoreStep");
 console.log(stepButton);
 stepButton.addEventListener("click", () => {
@@ -81,8 +82,12 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
         try {
-            const response = yield fetch('', {
+            const response = yield fetch('http://localhost:3000/recipes/new', {
                 method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    "Authorization": `Bearer ${Token}`
+                },
                 body: formData,
             });
             if (response.ok) {

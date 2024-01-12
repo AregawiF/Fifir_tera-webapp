@@ -1,6 +1,6 @@
 let recipeid: any = sessionStorage.getItem('id');
 let tokenId: any = sessionStorage.getItem('token');
-console.log(recipeid)
+
 let recipeName: HTMLHeadingElement;
 let description: HTMLParagraphElement;
 let servingText: HTMLParagraphElement;
@@ -165,16 +165,24 @@ function sendPatch(): void {
         ingredients: newIngs
     };
     const dataString = JSON.stringify(data);
-    console.log(dataString);
-    fetch(`http://localhost:3000/recipes/${recipeid}`, {
+    console.log(dataString, recipeid, tokenId);
+    const thing = `http://localhost:3000/recipes/${recipeid}`
+    console.log(thing)
+    fetch(thing, {
         method: 'PATCH',
         headers: {
-            'Content-Type': 'application/json',
             'Authorization': 'Bearer ' + tokenId,
+            'Content-Type': 'application/json',
 
         },
         body: dataString,
-    });
+    }).then(res => {
+        if (res.ok){
+            window.location.href = 'mydishes.html';
+        }
+        else{
+            console.log(res)
+        }
+    })
 
-//    window.location.href = 'mydishes.html';
 }

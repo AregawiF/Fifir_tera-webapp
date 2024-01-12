@@ -1,3 +1,6 @@
+const Token: any = sessionStorage.getItem('token');
+
+
 const stepButton: any = document.getElementById("addMoreStep");
 console.log(stepButton)
 stepButton.addEventListener("click", () =>{
@@ -83,8 +86,12 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         try {
-            const response = await fetch('', {
+            const response = await fetch('http://localhost:3000/recipes/new', {
                 method: 'POST',
+                headers: {
+                    'Content-Type':  'application/json',
+                    "Authorization": `Bearer ${Token}`
+                },
                 body: formData,
             });
 
