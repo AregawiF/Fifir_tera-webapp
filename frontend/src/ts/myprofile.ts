@@ -1,6 +1,20 @@
 const urlToken: string = sessionStorage.getItem('token') as string ;
 const cookId: string = sessionStorage.getItem('cook-id') as string;
+const ROLE = sessionStorage.getItem('role');
 console.log(cookId, urlToken);
+
+if (ROLE == 'normal'){
+  const addDish = document.getElementById('add-dish');
+  const mydishes = document.getElementById('my-dishes');
+  addDish?.classList.add('d-none');
+  mydishes?.classList.add('d-none');
+}
+if (ROLE == 'cook'){
+  const addDish = document.getElementById('add-dish');
+  const mydishes = document.getElementById('my-dishes');
+  addDish?.classList.remove('d-none');
+  mydishes?.classList.remove('d-none');
+}
 
 
 interface Profile{

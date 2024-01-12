@@ -1,6 +1,20 @@
 
 const to_ken = sessionStorage.getItem('token');
-console.log(to_ken);
+const Role = sessionStorage.getItem('role');
+
+if (Role == 'normal'){
+  const addDish = document.getElementById('add-dish');
+  const mydishes = document.getElementById('my-dishes');
+  addDish?.classList.add('d-none');
+  mydishes?.classList.add('d-none');
+}
+if (Role == 'cook'){
+  const addDish = document.getElementById('add-dish');
+  const mydishes = document.getElementById('my-dishes');
+  addDish?.classList.remove('d-none');
+  mydishes?.classList.remove('d-none');
+}
+
 function display (type:boolean){
     fetch(`http://localhost:3000/recipes/category/${type}`, {
       headers: {
