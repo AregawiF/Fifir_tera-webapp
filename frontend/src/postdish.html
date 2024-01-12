@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <title>Post Your Recipe</title>
+
+    <style>
+        body {
+            background: url('../Images/firfir.jpg') no-repeat center center fixed;
+            background-size: cover;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+    
+    </style>
+
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-md bg-body-tertiary ">
+            <div class="container-fluid ">
+              
+            <a class="navbar-brand text-danger" href="">
+                <div class="navbar-brand mx-3">
+                    <img src="../Images/restaurant.png" alt="" class="img-fluid image home-banner" width="50">
+                  </div> ፍርፍር ተራ
+            </a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link text-black" href="./home.html">Home</a>
+                  </li>
+                  
+                  <li class="nav-item">
+                    <a class="nav-link text-black" href="./category.html">Categories</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link text-black" href="./contact.html">About us</a>
+                  </li>
+                </ul>
+                <form class="d-flex" role="search">
+                  <input class="form-control me-2 " type="search" placeholder="Search" aria-label="Search">
+                  <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+              </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="opacity-90">
+        <div class="mt-5  w-auto bg-black opacity-75">
+            <h1 class="text-center text-white title ">We Thank You For Sharing Your Dish!</h1>
+        </div>
+
+        <form id="recipeForm" class="d-flex flex-column flex-md-row justify-content-center m-5 w-auto h-auto " style="height: 100vh;">
+
+            <article class="bg-white d-flex ">
+                <div class="">
+                    <div class="m-3 form-floating">
+                      <input type="name" class="form-control" name="name" aria-describedby="emailHelp" placeholder="Name" required>
+                      <label for="name-of-food"> <img src="../Images/menu.png" alt="Name-pic"> Name of the Dish</label>
+                      <div id="emailHelp" class="form-text">Thanks for sharing your dish.</div>
+                    </div>
+                    <div class="input-group w-auto h-auto m-3">
+                        <span class="input-group-text">Description</span>
+                        <textarea class="form-control" name="description" aria-label="With textarea" rows="5" required></textarea>
+                    </div>
+                    
+                    <div class="m-3">
+                        <label class="form-label" for="customFile">Upload the image</label>
+                        <input type="file" class="form-control"  accept="image/*" name="image" required>
+                    </div>
+    
+                   
+                </div>
+    
+            </article>
+            
+            <article class="bg-white ">
+                <div class="form-outline  d-flex m-3">
+                    <label class="form-label mx-2" for="prep-time"> <img src="../Images/stopwatch.png" class="my-3" alt="Time-logo" ></label>
+                    <input value="30" type="number" name="cookTime" class="form-control" step="5" required/>
+                    <label for="prep-time" class="m-3"> min </label>
+                </div>
+                <div class="form-outline  d-flex m-3">
+                    <label class="form-label mx-3" for="serving-enough-for"><img src="../Images/people.png" class="my-3" alt="people-logo"></label>
+                    <input value="3" type="number" name="people" class="form-control" required />
+                    <label for="serving-enough-for" class="m-3">People</label>
+                </div>
+                <div class="m-3">
+                    <label for="fasting" class="form-label">Is The Food?</label>
+                    <select class="form-select" name="fasting" required>
+                      <option selected>Fasting/Non-Fasting</option>
+                      <option value="true">Fasting</option>
+                      <option value="false">Non-Fasting</option>   
+                    </select>
+                </div>
+                <div class="m-3">
+                    <label for="type-of-food" class="form-label">Food is best for</label>
+                    <select class="form-select" name="type" required>
+                      <option selected>Select Type</option>
+                      <option value="BreakFast">BreakFast</option>
+                      <option value="Lunch">Lunch</option> 
+                      <option value="Dinner">Dinner</option>
+                      <option value="Snack">Snack</option>  
+                    </select>
+                </div>
+            </article>
+        
+
+            <article class="d-flex align-items-center justify-content-center m-3">
+                <div class="d-flex flex-md-row flex-column w-md-50 bg-white"> 
+                    <div>
+                    <h2 class="text-center">Steps to cooking</h2>
+                    <ul class="list-unstyled d-flex-columns justify-content-center align-items-center" id="ul-step">
+                        <li>
+                            <div class="m-3 form-floating">
+                                <input type="text" class="form-control" name="steps" aria-describedby="emailHelp" placeholder="Name" required>
+                                <label for="name-of-food"> Step - 1</label>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="m-3 form-floating">
+                                <input type="text" class="form-control" name="steps" aria-describedby="emailHelp" placeholder="Name" required>
+                                <label for="name-of-food"> Step - 2</label>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="m-3 form-floating">
+                                <input type="text" class="form-control" name="steps" aria-describedby="emailHelp" placeholder="Name" required>
+                                <label for="name-of-food"> Step - 3</label>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="d-flex align-items-center justify-content-center">
+                        <button class="btn bg-black text-white mb-2" id="addMoreStep" type="button">
+                            Add More
+                        </button>
+                    </div>
+                    
+                    </div>
+                    <div>
+                    <h2 class="text-center">Key Ingriedients</h2>
+                    <ul class="list-unstyled d-flex-columns justify-content-center align-items-center" id="ing-list">
+                        <li>
+                            <div class="m-3 form-floating">
+                                <input type="name" class="form-control" name="ingredients" aria-describedby="emailHelp" placeholder="Name" required>
+                                <label for="name-of-food"> Ingriedient - 1</label>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="m-3 form-floating">
+                                <input type="name" class="form-control" name="ingredients" aria-describedby="emailHelp" placeholder="Name" required>
+                                <label for="name-of-food"> Ingriedient - 2</label>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="m-3 form-floating">
+                                <input type="name" class="form-control" name="ingredients" aria-describedby="emailHelp" placeholder="Name" required>
+                                <label for="name-of-food"> Ingriedient - 3</label>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="d-flex align-items-center justify-content-center">
+                        <button class="btn bg-black text-white mb-2" id="addMoreIng" type="button">
+                            Add More
+                        </button>
+                    </div>
+                    </div>
+                </div>
+            </article>
+            <div class="d-flex align-items-center justify-content-center mb-5">
+                <button id="post-btn" class="btn btn-warning text-black opacity-100 mb-4" type="submit">
+                    Post Recipe
+                </button>
+            </div>
+        </form>
+    </main>
+    
+    </body>
+    <script src="../bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="./js/script.js" difer></script>
+</html>
