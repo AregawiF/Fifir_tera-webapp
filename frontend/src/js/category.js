@@ -1,6 +1,18 @@
 "use strict";
 const to_ken = sessionStorage.getItem('token');
-console.log(to_ken);
+const Role = sessionStorage.getItem('role');
+if (Role == 'normal') {
+    const addDish = document.getElementById('add-dish');
+    const mydishes = document.getElementById('my-dishes');
+    addDish === null || addDish === void 0 ? void 0 : addDish.classList.add('d-none');
+    mydishes === null || mydishes === void 0 ? void 0 : mydishes.classList.add('d-none');
+}
+if (Role == 'cook') {
+    const addDish = document.getElementById('add-dish');
+    const mydishes = document.getElementById('my-dishes');
+    addDish === null || addDish === void 0 ? void 0 : addDish.classList.remove('d-none');
+    mydishes === null || mydishes === void 0 ? void 0 : mydishes.classList.remove('d-none');
+}
 function display(type) {
     fetch(`http://localhost:3000/recipes/category/${type}`, {
         headers: {
