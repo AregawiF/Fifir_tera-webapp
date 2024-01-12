@@ -35,6 +35,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 console.log(data);
                 sessionStorage.setItem('token', data.token);
                 sessionStorage.setItem('role', data.role[0]);
+                sessionStorage.setItem('cook-id', data.id);
+                // console.log(sessionStorage.getItem('cook-id'));
                 window.location.href = 'home.html';
             }
             else {

@@ -1,6 +1,7 @@
 const token = sessionStorage.getItem('token');
 const role = sessionStorage.getItem('role');
-console.log(token, role);
+const cook_id = sessionStorage.getItem('cook-id');
+console.log(token, role, cook_id);
 
 setInterval(() => {
     fetch(`http://localhost:3000/recipes`, {
@@ -23,6 +24,7 @@ setInterval(() => {
     parent.addEventListener('click' , () => {
         const id:string= json._id
         sessionStorage.setItem('id', id); // Fix: Use correct syntax for setting an item in sessionStorage
+        
         window.location.href = 'singledish.html'
     })
 

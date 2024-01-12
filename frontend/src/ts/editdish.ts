@@ -7,7 +7,7 @@ let categoryTwo: HTMLParagraphElement;
 let stepDiv: HTMLElement;
 let ingDiv: HTMLElement;
 
-
+recipeid = sessionStorage.getItem('idValue');
 fetch(`http://localhost:3000/recipe/${recipeid}`)
     .then(res => res.json())
     .then(json => handler(json));

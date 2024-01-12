@@ -1,7 +1,12 @@
 "use strict";
-let id_s = sessionStorage.getItem('id');
-console.log(id_s);
-fetch(`http://localhost:3000/recipes/myrecipes/${id_s}`)
+let id_s = sessionStorage.getItem('cook-id');
+let theToken = sessionStorage.getItem('token');
+fetch(`http://localhost:3000/recipes/myrecipes/${id_s}`, {
+    headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + theToken,
+    },
+})
     .then(res => res.json())
     .then(json => display(json));
 function display(json) {
@@ -31,9 +36,14 @@ function display(json) {
         button.textContent = 'Delete';
         button.onclick = () => {
             const isConfirmed = window.confirm('Are you sure you want to delete?');
+            console.log(iter._id);
             if (isConfirmed) {
-                fetch(`http://localhost:3000/recipe/${iter._id}`, {
+                fetch(`http://localhost:3000/recipes/${iter._id}`, {
                     method: 'DELETE',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': 'Bearer ' + theToken,
+                    }
                 });
                 window.location.reload();
             }
@@ -42,7 +52,7 @@ function display(json) {
         const edit = document.createElement('button');
         edit.classList.add('btn', 'btn-warning', 'm-3');
         edit.onclick = () => {
-            sessionStorage.setItem('idValue', iter._id);
+            sessionStorage.setItem('id', iter._id);
             window.location.href = 'editdish.html';
         };
         edit.textContent = 'Edit';
