@@ -94,7 +94,9 @@ function handler(json: Json){
     StepAndIng(json);
   }
   function StepAndIng(json:Json){
-    let steps: string[] = json.steps
+    
+    const steps: string[] = JSON.parse(json.steps[0])
+    console.log(steps)
     let stepDiv:any = document.getElementById("steps");
     for (const step of steps){
         const div = document.createElement('div')
@@ -104,7 +106,7 @@ function handler(json: Json){
         div.appendChild(ptag)
         stepDiv.appendChild(div)
     }
-    let ings : string[]= json.ingredients
+    let ings : string[]=  JSON.parse(json.steps[0])
     let ingDiv:any = document.getElementById("ingridients");      
     for (const step of ings){
         const div = document.createElement('div')
