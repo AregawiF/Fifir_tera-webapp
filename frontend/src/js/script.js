@@ -94,6 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log(response);
             if (response.ok) {
                 console.log('Form submitted successfully');
+                window.location.href = 'home.html';
             }
             else {
                 console.error('Form submission failed');
