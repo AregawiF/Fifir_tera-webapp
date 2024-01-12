@@ -25,7 +25,7 @@ fetch(`http://localhost:3000/user/${cookId}`,{
 let container = document.getElementById('container');
 let nameVarElement: HTMLParagraphElement;
 let fathersNameVarElement: HTMLParagraphElement;
-let emailLabelElement: HTMLParagraphElement;
+let emailVarElement: HTMLParagraphElement;
 
 function handle(json:Profile) {
   console.log(json);
@@ -61,12 +61,12 @@ function handle(json:Profile) {
 
   // Email
   let emailWithContainer = document.getElementById('emailContainer') as HTMLDivElement;
-
+  let emailLabelElement: HTMLParagraphElement;
   emailLabelElement = document.createElement('p');
   emailLabelElement.innerHTML = "Email: ";
   emailLabelElement.classList.add('m-3', 'p-3');
 
-  let emailVarElement = document.createElement('p');
+  emailVarElement = document.createElement('p');
   emailVarElement.innerHTML = json.email;
   emailVarElement.classList.add('m-3', 'container', 'bg-secondary', 'p-3');
   emailVarElement.contentEditable = "true";
@@ -92,16 +92,16 @@ function handle(json:Profile) {
 function saveChanges() {
   let firstName = nameVarElement.innerHTML;
   let lastName = fathersNameVarElement.innerHTML;
-  let email = emailLabelElement.innerHTML;
+  let email = emailVarElement.innerHTML;
+  console.log(email)
 
   let user = {
-    firstName,
-    lastName,
-    email
+    "firstName":firstName,
+    "lastName":lastName,
+    "email":email
   };
   console.log(user);
-
-
+  
   fetch(`http://localhost:3000/user/${cookId}`, {
     method: 'PATCH',
     body: JSON.stringify(user),
