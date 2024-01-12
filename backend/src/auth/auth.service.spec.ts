@@ -41,8 +41,6 @@ describe('AuthService', () => {
   });
 
   try {
-    // ... existing signUp logi
-
     describe('signUp', () => {
       it('should create a user and return a token and role', async () => {
         const signUpDto = {
