@@ -5,6 +5,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { User, UserSchema } from './schemas/user.schema';
 import { Reflector } from '@nestjs/core';
 import { JwtStrategy } from './auth/strategies/jwt.strategy';
+import { RecipeModule } from './recipe/recipe.module';
 
 @Module({
   imports: [
@@ -14,7 +15,7 @@ import { JwtStrategy } from './auth/strategies/jwt.strategy';
     }),
     MongooseModule.forRoot(process.env.DB_URI),
     MongooseModule.forFeature([{ name: User.name, schema: UserSchema }]),
-    AuthModule],
+    AuthModule,RecipeModule],
   providers: [ Reflector, JwtStrategy]
 })
 export class AppModule { }
