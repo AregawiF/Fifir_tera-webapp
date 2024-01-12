@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <title>Sign In</title>
+
+    <style>
+        body {
+            background: url('../Images/firfir.jpg') no-repeat center center fixed;
+            background-size: cover;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+
+</head>
+<body class="">
+    <div class="mt-5 bg-black opacity-50 w-auto">
+        <h1 class="text-center text-white title ">Welcome to Firfir Tera</h1>
+        <p class="subtitle text-white text-center">The Hub For Dishes!</p>
+    </div>
+
+    <div class="d-flex align-items-center justify-content-center h-auto">
+        <div class="col-auto col-md-6">
+            <form class="w-auto bg-white opacity-90 container d-flex-columns justify-content-center align-items-center" id="signup-form" action="POST">
+                <div class="d-flex justify-content-center opacity-100">
+                    <a href="./index.html">
+                        <button class="btn btn-primary m-3" type="button">Have an acount?</button>
+                    </a>
+                </div>
+                <div class="d-flex flex-md-row flex-column">    
+                    <div class="form-floating m-3">
+                        <input type="text" name="firstName" class="form-control" placeholder="Homer" required>
+                        <label for="floatingInput">First Name</label>
+                    </div>
+                    <div class="form-floating m-3">
+                        <input type="text" name="lastName" class="form-control"placeholder="Simpsons" required>
+                        <label for="floatingInput">Last Name</label>
+                    </div>
+
+                </div>
+                <div class="form-floating m-3">
+                    <input type="email" name="email" class="form-control" placeholder="name@example.com" required>
+                    <label for="floatingInput">Email address</label>
+                </div>
+                <div class="form-floating m-3">
+                  <input type="password" name="password" class="form-control " id="floatingPassword" placeholder="Password" required>
+                  <label for="floatingPassword">Password</label>
+                </div>
+                <!--  -->
+
+                <fieldset class="">
+                    <legend class="text-center">What will you be doing</legend>
+                    <div class="d-flex  justify-content-around" id="listen-click">
+                        <div class="form-check ">
+                            <input type="radio" name="role" value="normal" class="form-check-input" id="exampleRadio" checked>
+                            <label class="form-check-label" for="exampleRadio1">Read Recipes</label>
+                          </div>
+                          <div class=" form-check">
+                            <input type="radio" name="role" value="cook" class="form-check-input" id="exampleRadio-2" >
+                            <label class="form-check-label" for="exampleRadio2">Post Recipes</label>
+                          </div>
+                    </div>
+                  </fieldset>
+                
+                  <!-- Visible for people who post only! -->
+                <div class="d-none" id="show-on-radio">
+                    <div class="form-floating m-3">
+                        <input type="text" name="title" class="form-control" placeholder="Chef" >
+                        <label for="floatingInput">Title</label>
+                    </div>
+                    <div class="form-floating m-3">
+                        <input type="text" name="bio" class="form-control" placeholder="Bio" >
+                        <label for="floatingInput">Bio</label>
+                    </div>
+                </div>  
+
+                <div class="d-flex justify-content-center m-3 opacity-100">
+                    <button id="signup" class="btn btn-warning m-3 " type="submit">Register!</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+
+    
+    
+   
+</body>
+
+
+<script>
+    radio = document.getElementById("exampleRadio-2");
+    document.getElementById("listen-click").addEventListener('click', check)
+    document.getElementById("listen-click-2").addEventListener('click', check)
+    function check(){
+        if (!radio.checked){
+            document.getElementById("show-on-radio").classList.add("d-none");
+        }
+        else{
+            document.getElementById("show-on-radio").classList.remove("d-none");
+        }
+    }
+</script>
+<script src="../bootstrap/bootstrap.bundle.min.js"></script>
+<script src="./js/signup.js" ></script>
+
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <title>Home</title>
+
+    <style>
+        body {
+          background: url('../Images/firfir.jpg') no-repeat center center fixed;
+          background-size: cover;
+          height: 100vh;
+          margin: 0;
+          padding: 0;
+        }
+  </style>
+
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-md bg-body-tertiary ">
+            <div class="container-fluid ">       
+            <a class="navbar-brand text-danger" href="">
+                <div class="navbar-brand mx-3">
+                    <img src="../Images/restaurant.png" alt="" class="img-fluid image home-banner" width="50">
+                  </div> ፍርፍር ተራ
+            </a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link text-black" href="./home.html">Home</a>
+                  </li>
+                  
+                  <li class="nav-item">
+                    <a class="nav-link text-black" href="./category.html">Categories</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link text-black" href="./contact.html">About us</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link text-black" href="../src/editprofile.html">My Profile</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link text-black" href="../src/mydishes.html" id="my-dishes">My Dishes</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link text-black" href="../src/postdish.html" id="add-dish">Add Dish</a>
+                  </li>
+                </ul>
+                <!-- <form class="d-flex" role="search">
+                  <input class="form-control me-2 " type="search" placeholder="Search" aria-label="Search">
+                  <button class="btn btn-outline-success" type="submit">Search</button>
+                </form> -->
+              </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="d-flex flex-column justify-content-center align-items-center w-75 h-75 bg-white  m-5" id="random">
+            <img id="img"/>
+            <h1 id="title"></h1>
+            <p id="description"></p>
+
+        </div>
+
+    </main>
+</body>
+<script src="./js/home.js" difer></script>
+<script src="../bootstrap/bootstrap.bundle.min.js"></script>
+</html>
