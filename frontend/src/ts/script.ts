@@ -1,5 +1,20 @@
 const Token: any = sessionStorage.getItem('token');
 console.log(Token)
+const RoLe = sessionStorage.getItem('role');
+
+
+if (RoLe == 'normal'){
+    const addDish = document.getElementById('add-dish');
+    const mydishes = document.getElementById('my-dishes');
+    addDish?.classList.add('d-none');
+    mydishes?.classList.add('d-none');
+  }
+  if (RoLe == 'cook'){
+    const addDish = document.getElementById('add-dish');
+    const mydishes = document.getElementById('my-dishes');
+    addDish?.classList.remove('d-none');
+    mydishes?.classList.remove('d-none');
+  }
 
 
 const stepButton: any = document.getElementById("addMoreStep");
