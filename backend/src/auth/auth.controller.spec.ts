@@ -3,7 +3,7 @@ import { AuthController } from './auth.controller';
 import { AuthService } from './auth.service';
 import { getModelToken } from '@nestjs/mongoose';
 import { JwtService } from '@nestjs/jwt';
-import { UnauthorizedException, ConflictException } from '@nestjs/common';
+import { UnauthorizedException } from '@nestjs/common';
 import { User } from '../schemas/user.schema';
 import { SignUpDto } from '../dto/signup.dto';
 import { LoginDto } from '../dto/login.dto';
@@ -70,22 +70,6 @@ describe('AuthController', () => {
 
       expect(result).toEqual({ token: 'a jwt token', role: 'normal' });
     });
-
-    // it('should throw an UnauthorizedException for invalid role', async () => {
-    //   const signUpDto: SignUpDto = {
-    //     firstName: 'Abebe',
-    //     lastName: 'Kebede',
-    //     email: 'Abebe@example.com',
-    //     password: 'passpass',
-    //     role: 'invalid_role',
-    //     title: 'Title of Abebe',
-    //     bio: 'Bio of Abebe',
-    //   };
-
-    //   await expect(controller.signUpNormal(signUpDto)).rejects.toThrow(
-    //     new UnauthorizedException('Invalid role')
-    //     );
-    // });
   });
 
   describe('signUpCook', () => {
