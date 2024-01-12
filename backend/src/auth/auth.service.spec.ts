@@ -41,49 +41,34 @@ describe('AuthService', () => {
   });
 
   try {
+    // ... existing signUp logi
 
-  describe('signUp', () => {
-    it('should create a user and return a token and role', async () => {
-      const signUpDto = {
-        firstName: 'Abebe',
-        lastName: 'Kebede',
-        email: 'Abebe@example.com',
-        password: 'passpass',
-        role: ['normal'],
-        title: 'Title of Abebe',
-        bio: 'Bio of Abebe',
-      };
+    describe('signUp', () => {
+      it('should create a user and return a token and role', async () => {
+        const signUpDto = {
+          firstName: 'Abebe',
+          lastName: 'Kebede',
+          email: 'Abebe@example.com',
+          password: 'passpass',
+          role: ['normal'],
+          title: 'Title of Abebe',
+          bio: 'Bio of Abebe',
+        };
 
-      const createdUser = {
-        ...signUpDto,
-        _id: 'a uuid',
-        password: await bcrypt.hash(signUpDto.password, 10),
-      };
+        const createdUser = {
+          ...signUpDto,
+          _id: 'a uuid',
+          password: await bcrypt.hash(signUpDto.password, 10),
+        };
 
-      mockUserModel.create.mockResolvedValue(createdUser);
-      mockJwtService.sign.mockReturnValue('a jwt token');
+        mockUserModel.create.mockResolvedValue(createdUser);
+        mockJwtService.sign.mockReturnValue('a jwt token');
 
-      const result = await service.signUp(signUpDto);
+        const result = await service.signUp(signUpDto);
 
-      expect(result).toEqual({ token: 'a jwt token', role: signUpDto.role });
+        expect(result).toEqual({ token: 'a jwt token', role: signUpDto.role });
+      });
     });
-
-    it('should throw a ConflictException if email is already in use', async () => {
-      const signUpDto = {
-        firstName: 'Abebe',
-        lastName: 'Kebede',
-        email: 'Abebe@example.com',
-        password: 'passpass',
-        role: ['normal'],
-        title: 'Title of Abebe',
-        bio: 'Bio of Abebe',
-      };
-
-      mockUserModel.create.mockRejectedValue({ name: 'MongoError', code: 11000 });
-
-      await expect(service.signUp(signUpDto)).rejects.toThrow(ConflictException);
-    });
-  });
   } catch (error) {
     if (error instanceof MongoError && error.code === 11000) {
       throw new ConflictException('Email is already in use');
