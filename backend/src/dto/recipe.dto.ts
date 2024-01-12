@@ -85,10 +85,6 @@ export class updateRecipeDto {
   @IsOptional()
   image: string;
 
-  // @IsString()
-  // @IsOptional()
-  // cook: string;
-
   @IsString()
   @IsOptional()
   cook_id: string;
