@@ -21,7 +21,6 @@ export class RolesGuard implements CanActivate {
       return true;
     }
 
-
     const httpContext = context.switchToHttp();
     const request = httpContext.getRequest();
     const authorizationHeader = request.headers.authorization;
@@ -48,11 +47,8 @@ export class RolesGuard implements CanActivate {
       } catch (error) {
         console.error('Token verification failed:', error.message);
         throw new UnauthorizedException('Invalid token');
-        // return false;
       }
     } else {
-      // console.log('No JWT Token found in the Authorization header');
-      // return false;
       throw new UnauthorizedException('No JWT Token found in the Authorization header');
     }
   }
