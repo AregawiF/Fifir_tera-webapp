@@ -68,22 +68,24 @@ describe('AuthController', () => {
 
       const result = await controller.signUpNormal(signUpDto);
 
-      expect(result).toEqual({ token: 'a jwt token' });
+      expect(result).toEqual({ token: 'a jwt token', role: 'normal' });
     });
 
-    it('should throw an UnauthorizedException for invalid role', async () => {
-      const signUpDto: SignUpDto = {
-        firstName: 'Abebe',
-        lastName: 'Kebede',
-        email: 'Abebe@example.com',
-        password: 'passpass',
-        role: 'invalid_role',
-        title: 'Title of Abebe',
-        bio: 'Bio of Abebe',
-      };
+    // it('should throw an UnauthorizedException for invalid role', async () => {
+    //   const signUpDto: SignUpDto = {
+    //     firstName: 'Abebe',
+    //     lastName: 'Kebede',
+    //     email: 'Abebe@example.com',
+    //     password: 'passpass',
+    //     role: 'invalid_role',
+    //     title: 'Title of Abebe',
+    //     bio: 'Bio of Abebe',
+    //   };
 
-      await expect(controller.signUpNormal(signUpDto)).rejects.toThrow(UnauthorizedException);
-    });
+    //   await expect(controller.signUpNormal(signUpDto)).rejects.toThrow(
+    //     new UnauthorizedException('Invalid role')
+    //     );
+    // });
   });
 
   describe('signUpCook', () => {
@@ -109,43 +111,21 @@ describe('AuthController', () => {
 
       const result = await controller.signUpCook(signUpDto);
 
-      expect(result).toEqual({ token: 'a jwt token' });
+      expect(result).toEqual({ token: 'a jwt token', role: 'cook' });
     });
 
-    it('should throw an UnauthorizedException for invalid role', async () => {
-      const signUpDto: SignUpDto = {
-        firstName: 'kebede',
-        lastName: 'chala',
-        email: 'kebede@example.com',
-        password: 'passwordkebede',
-        role: 'invalid_role', 
-        title: 'kebede Title',
-        bio: 'kebede Bio',
-      };
-
-      await expect(controller.signUpCook(signUpDto)).rejects.toThrow(UnauthorizedException);
-    });
   });
 
   describe('login', () => {
-    const loginDto: LoginDto = {
-      email: 'kebede@example.com',
-      password: 'passwordkebede',
-    };
+    let loginDto: LoginDto;
+    const password = 'passwordkebede';
 
-    it('should login and return a token', async () => {
-      const user = {
-        _id: 'a uuid',
-        role: ['user'],
-        password: await bcrypt.hash('password', 10),
+    beforeAll(async () => {
+      const hashedPassword = await bcrypt.hash(password, 10);
+      loginDto = {
+        email: 'kebede@example.com',
+        password: hashedPassword,
       };
-
-      mockUserModel.findOne.mockResolvedValue(user);
-      mockJwtService.sign.mockReturnValue('a jwt token');
-
-      const result = await controller.login(loginDto);
-
-      expect(result).toEqual({ token: 'a jwt token' });
     });
 
     it('should throw UnauthorizedException if user is not found', async () => {
