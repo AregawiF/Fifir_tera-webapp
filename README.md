@@ -17,3 +17,15 @@ The platform's user-friendly interface ensures easy exploration of recipes, cate
 To support its vast collection of recipes and associated data, Firfir Tera has opted for MongoDB as its database solution. MongoDB's document-oriented structure aligns seamlessly with the app's needs, offering the flexibility and scalability required to store and manage a wide variety of recipes while adapting to evolving culinary trends and user preferences. Our recipe sharing webapp employes html, bootstrap and typescript for the frontend and nestjs for the backend.
 
 In essence, Firfir Tera is a culinary haven, inviting users to explore, create, and enjoy a diverse array of flavors from around the world. Whether users seek comfort in familiar cuisines or wish to embark on new culinary adventures, Firfir Tera stands ready to facilitate their gastronomic journey.
+
+We used JWT Token based Authentication and Authorization and used nestjs Guards for Role-based authentication.
+
+For it to function correctly. Please download the file and follow these steps:
+1. Run "npm install" in your terminal to install the required dependencies.
+2. Run "mongod" in your terminal to start the MongoDB database.
+3. Finally, run "npm run start" to launch the project.
+
+
+
+
+
