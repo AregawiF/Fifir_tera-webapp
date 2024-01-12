@@ -1,4 +1,5 @@
 const Token: any = sessionStorage.getItem('token');
+console.log(Token)
 
 
 const stepButton: any = document.getElementById("addMoreStep");
@@ -67,6 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
             
         });
         formData.set('steps', JSON.stringify(stepsArray));
+        
 
         const ingredientsArray: string[] = [];
         ingredientsInputs.forEach((input: HTMLInputElement) => {
@@ -84,16 +86,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 console.log(`${key}: ${value}`);
             }
         });
-
+        console.log(formData.get('image'))
         try {
             const response = await fetch('http://localhost:3000/recipes/new', {
                 method: 'POST',
                 headers: {
-                    'Content-Type':  'application/json',
-                    "Authorization": `Bearer ${Token}`
+                    'Authorization': 'Bearer ' + Token,
                 },
                 body: formData,
             });
+            console.log(response)
 
             if (response.ok) {
                 console.log('Form submitted successfully');

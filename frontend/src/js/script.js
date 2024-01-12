@@ -9,6 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 const Token = sessionStorage.getItem('token');
+console.log(Token);
 const stepButton = document.getElementById("addMoreStep");
 console.log(stepButton);
 stepButton.addEventListener("click", () => {
@@ -81,15 +82,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 console.log(`${key}: ${value}`);
             }
         });
+        console.log(formData.get('image'));
         try {
             const response = yield fetch('http://localhost:3000/recipes/new', {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json',
-                    "Authorization": `Bearer ${Token}`
+                    'Authorization': 'Bearer ' + Token,
                 },
                 body: formData,
             });
+            console.log(response);
             if (response.ok) {
                 console.log('Form submitted successfully');
             }
