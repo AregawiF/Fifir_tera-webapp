@@ -1,4 +1,6 @@
-let recipeid: any = sessionStorage.getItem('idValue');
+let recipeid: any = sessionStorage.getItem('id');
+let tokenId: any = sessionStorage.getItem('token');
+console.log(recipeid)
 let recipeName: HTMLHeadingElement;
 let description: HTMLParagraphElement;
 let servingText: HTMLParagraphElement;
@@ -7,8 +9,12 @@ let categoryTwo: HTMLParagraphElement;
 let stepDiv: HTMLElement;
 let ingDiv: HTMLElement;
 
-recipeid = sessionStorage.getItem('idValue');
-fetch(`http://localhost:3000/recipe/${recipeid}`)
+fetch(`http://localhost:3000/recipes/${recipeid}`, {
+    headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + tokenId,
+    },
+})
     .then(res => res.json())
     .then(json => handler(json));
 
@@ -158,14 +164,17 @@ function sendPatch(): void {
         steps: newSteps,
         ingredients: newIngs
     };
-
-    fetch(`http://localhost:3000/recipe/${id}`, {
+    const dataString = JSON.stringify(data);
+    console.log(dataString);
+    fetch(`http://localhost:3000/recipes/${recipeid}`, {
         method: 'PATCH',
         headers: {
             'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + tokenId,
+
         },
-        body: JSON.stringify(data),
+        body: dataString,
     });
 
-    window.location.href = 'mydishes.html';
+//    window.location.href = 'mydishes.html';
 }

@@ -1,5 +1,7 @@
 "use strict";
-let recipeid = sessionStorage.getItem('idValue');
+let recipeid = sessionStorage.getItem('id');
+let tokenId = sessionStorage.getItem('token');
+console.log(recipeid);
 let recipeName;
 let description;
 let servingText;
@@ -7,7 +9,12 @@ let prepTimeTest;
 let categoryTwo;
 let stepDiv;
 let ingDiv;
-fetch(`http://localhost:3000/recipe/${recipeid}`)
+fetch(`http://localhost:3000/recipes/${recipeid}`, {
+    headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + tokenId,
+    },
+})
     .then(res => res.json())
     .then(json => handler(json));
 function handler(json) {
@@ -130,12 +137,15 @@ function sendPatch() {
         steps: newSteps,
         ingredients: newIngs
     };
-    fetch(`http://localhost:3000/recipe/${id}`, {
+    const dataString = JSON.stringify(data);
+    console.log(dataString);
+    fetch(`http://localhost:3000/recipes/${recipeid}`, {
         method: 'PATCH',
         headers: {
             'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + tokenId,
         },
-        body: JSON.stringify(data),
+        body: dataString,
     });
-    window.location.href = 'mydishes.html';
+    //    window.location.href = 'mydishes.html';
 }
