@@ -1,6 +1,19 @@
 "use strict";
 let recipeid = sessionStorage.getItem('id');
 let tokenId = sessionStorage.getItem('token');
+const rolE = sessionStorage.getItem('role');
+if (rolE == 'normal') {
+    const addDish = document.getElementById('add-dish');
+    const mydishes = document.getElementById('my-dishes');
+    addDish === null || addDish === void 0 ? void 0 : addDish.classList.add('d-none');
+    mydishes === null || mydishes === void 0 ? void 0 : mydishes.classList.add('d-none');
+}
+if (rolE == 'cook') {
+    const addDish = document.getElementById('add-dish');
+    const mydishes = document.getElementById('my-dishes');
+    addDish === null || addDish === void 0 ? void 0 : addDish.classList.remove('d-none');
+    mydishes === null || mydishes === void 0 ? void 0 : mydishes.classList.remove('d-none');
+}
 let recipeName;
 let description;
 let servingText;

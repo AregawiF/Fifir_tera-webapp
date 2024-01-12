@@ -10,6 +10,19 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 const Token = sessionStorage.getItem('token');
 console.log(Token);
+const RoLe = sessionStorage.getItem('role');
+if (RoLe == 'normal') {
+    const addDish = document.getElementById('add-dish');
+    const mydishes = document.getElementById('my-dishes');
+    addDish === null || addDish === void 0 ? void 0 : addDish.classList.add('d-none');
+    mydishes === null || mydishes === void 0 ? void 0 : mydishes.classList.add('d-none');
+}
+if (RoLe == 'cook') {
+    const addDish = document.getElementById('add-dish');
+    const mydishes = document.getElementById('my-dishes');
+    addDish === null || addDish === void 0 ? void 0 : addDish.classList.remove('d-none');
+    mydishes === null || mydishes === void 0 ? void 0 : mydishes.classList.remove('d-none');
+}
 const stepButton = document.getElementById("addMoreStep");
 console.log(stepButton);
 stepButton.addEventListener("click", () => {

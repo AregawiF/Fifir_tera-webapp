@@ -1,6 +1,19 @@
 "use strict";
 let id_s = sessionStorage.getItem('cook-id');
 let theToken = sessionStorage.getItem('token');
+let roLE = sessionStorage.getItem('role');
+if (roLE == 'normal') {
+    const addDish = document.getElementById('add-dish');
+    const mydishes = document.getElementById('my-dishes');
+    addDish === null || addDish === void 0 ? void 0 : addDish.classList.add('d-none');
+    mydishes === null || mydishes === void 0 ? void 0 : mydishes.classList.add('d-none');
+}
+if (roLE == 'cook') {
+    const addDish = document.getElementById('add-dish');
+    const mydishes = document.getElementById('my-dishes');
+    addDish === null || addDish === void 0 ? void 0 : addDish.classList.remove('d-none');
+    mydishes === null || mydishes === void 0 ? void 0 : mydishes.classList.remove('d-none');
+}
 fetch(`http://localhost:3000/recipes/myrecipes/${id_s}`, {
     headers: {
         'Content-Type': 'application/json',

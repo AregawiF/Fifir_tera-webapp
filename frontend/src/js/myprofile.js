@@ -1,7 +1,20 @@
 "use strict";
 const urlToken = sessionStorage.getItem('token');
 const cookId = sessionStorage.getItem('cook-id');
+const ROLE = sessionStorage.getItem('role');
 console.log(cookId, urlToken);
+if (ROLE == 'normal') {
+    const addDish = document.getElementById('add-dish');
+    const mydishes = document.getElementById('my-dishes');
+    addDish === null || addDish === void 0 ? void 0 : addDish.classList.add('d-none');
+    mydishes === null || mydishes === void 0 ? void 0 : mydishes.classList.add('d-none');
+}
+if (ROLE == 'cook') {
+    const addDish = document.getElementById('add-dish');
+    const mydishes = document.getElementById('my-dishes');
+    addDish === null || addDish === void 0 ? void 0 : addDish.classList.remove('d-none');
+    mydishes === null || mydishes === void 0 ? void 0 : mydishes.classList.remove('d-none');
+}
 fetch(`http://localhost:3000/user/${cookId}`, {
     method: 'GET',
     headers: {
