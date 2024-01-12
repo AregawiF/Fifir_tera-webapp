@@ -1,3 +1,8 @@
+const urlToken: string = sessionStorage.getItem('token') as string ;
+const cookId: string = sessionStorage.getItem('cook-id') as string;
+console.log(cookId, urlToken);
+
+
 interface Profile{
     firstName: string,
     lastName: string,
@@ -6,7 +11,14 @@ interface Profile{
     
 }
 
-fetch('https://jsonplaceholder.typicode.com/users/1')
+fetch(`http://localhost:3000/user/${cookId}`,{
+  method: 'GET',
+  headers: {
+    'Authorization': 'Bearer ' + urlToken,
+  }
+  
+})
+
   .then((response) => response.json())
   .then((json) => handle(json));
 
@@ -16,6 +28,7 @@ let fathersNameVarElement: HTMLParagraphElement;
 let emailLabelElement: HTMLParagraphElement;
 
 function handle(json:Profile) {
+  console.log(json);
   let nameWithContainer = document.getElementById('nameWithContainer') as HTMLDivElement;
 
   let labelElement = document.createElement('p');
@@ -87,11 +100,14 @@ function saveChanges() {
     email
   };
   console.log(user);
-  fetch('https://jsonplaceholder.typicode.com/users/1', {
+
+
+  fetch(`http://localhost:3000/user/${cookId}`, {
     method: 'PATCH',
     body: JSON.stringify(user),
     headers: {
-      'Content-type': 'application/json; charset=UTF-8',
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + urlToken,
     },
   })
     .then((response) => response.json())
@@ -99,8 +115,12 @@ function saveChanges() {
 }
 
 function deleteProfile() {
-  fetch('https://jsonplaceholder.typicode.com/users/1', {
+  fetch(`http://localhost:3000/user/${cookId}`, {
     method: 'DELETE',
+    headers: {
+      'Authorization': 'Bearer ' + urlToken,
+
+    },
   });
   window.location.href = 'index.html';
 }
